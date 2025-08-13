@@ -1,0 +1,35 @@
+:root {
+  /* Primary Colors */
+  --accent-hsl: 0, 0%, 100%;
+  --darkAccent-hsl: 0, 0%, 27.84313725%;
+  --lightAccent-hsl: 60, 4.76190476%, 95.88235294%;
+  --safeLightAccent-hsl: 0, 0%, 100%;
+  --safeDarkAccent-hsl: 0, 0%, 0%;
+  --safeInverseAccent-hsl: 0, 0%, 0%;
+  --safeInverseLightAccent-hsl: 0, 0%, 0%;
+  --safeInverseDarkAccent-hsl: 0, 0%, 100%;
+  --black-hsl: 0, 0%, 0%;
+  --white-hsl: 0, 0%, 100%;
+
+  /* Brand Colors */
+  --primary: hsla(166.69565217, 100%, 45.09803922%, 1);
+  --secondary: hsla(166.69565217, 100%, 45.09803922%, 0);
+  --tertiary: hsla(331.00478469, 100%, 59.01960784%, 1);
+
+  /* Background Colors */
+  --bg-overlay: hsla(331.00478469, 100%, 59.01960784%, 1);
+  --bg-menu-overlay: hsla(var(--black-hsl), 1);
+
+  /* Header Button Font Size */
+  --header-button-font-size: .9;
+
+  /* Form Colors */
+  --form-field-fill: hsla(var(--darkAccent-hsl), 1);
+  --form-field-fill-on-background: hsla(var(--lightAccent-hsl), 1);
+  --form-field-border: hsla(var(--white-hsl), 1);
+  --form-field-border-on-background: hsla(var(--black-hsl), 1);
+  --form-field-input: hsla(var(--white-hsl), 1);
+  --form-field-input-on-background: hsla(var(--black-hsl), 1);
+  --form-field-accent: hsla(var(--accent-hsl), 1);
+  --form-field-accent-on-background: hsla(var(--accent-hsl), 1);
+}
