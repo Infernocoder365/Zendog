@@ -1,77 +1,60 @@
 <template>
-  <footer class="bg-black text-white py-16">
-    <div class="container mx-auto px-4 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Company Info -->
-        <div class="lg:col-span-2">
-          <div class="flex items-center mb-6">
-            <div class="flex items-center space-x-2">
-              <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span class="text-black font-bold text-sm">🐕</span>
-              </div>
-              <span class="font-heading text-heading-4 font-heading leading-heading tracking-heading text-white">ZENDOG LABS</span>
+  <footer class="bg-white py-12">
+    <div class="container mx-auto max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Contact -->
+        <div class="md:col-span-3 text-center">
+          <h3 class="font-heading text-heading-4 leading-heading tracking-heading text-primary mb-6">Contact</h3>
+          <ul class="space-y-4 text-black text-base">
+            <li>e: <a href="mailto:hi@zendoglabs.com" class="transition">hi@zendoglabs.com</a>
+            </li>
+            <li>m: <a href="tel:+41764782886" class="transition">+41 76 479 82 86</a></li>
+            <li>Zurich, Switzerland</li>
+            <li>Cologne, Germany</li>
+            <li>Istanbul, Turkey</li>
+            <li>New York, United States</li>
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="md:col-span-4 text-center">
+          <h3 class="font-heading text-heading-4 leading-heading tracking-heading text-primary mb-6">Navigation</h3>
+          <ul class="space-y-4 text-black text-base">
+            <li><a href="#" class="transition">Home</a></li>
+            <li><a href="#" class="transition">Team</a></li>
+            <li><a href="#" class="transition">Case Studies</a></li>
+            <li><a href="#" class="transition">Vlog</a></li>
+            <li><a href="#" class="transition">Website Credits</a></li>
+            <li><a href="#" class="transition">Privacy Policy</a></li>
+          </ul>
+          <div class="mt-6 text-gray-400 text-sm">&copy; 2025 Zendog Labs</div>
+        </div>
+
+        <!-- Badges / Awards -->
+        <div class="md:col-span-5 flex flex-col items-start">
+            <div class="flex justify-center items-center gap-2">
             </div>
-          </div>
-          <p class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 mb-6 max-w-md">
-            We help ambitious companies scale their growth through data-driven strategies, innovative marketing campaigns, and proven conversion optimization techniques.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors">
-              <span class="text-xl">in</span>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors">
-              <span class="text-xl">📷</span>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors">
-              <span class="text-xl">🐦</span>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors">
-              <span class="text-xl">f</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Quick Links -->
-        <div>
-          <h3 class="font-heading text-heading-4 font-heading leading-heading tracking-heading text-white mb-6">
-            Quick Links
-          </h3>
-          <ul class="space-y-3">
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Home</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">About</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Services</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Case Studies</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Blog</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Services -->
-        <div>
-          <h3 class="font-heading text-heading-4 font-heading leading-heading tracking-heading text-white mb-6">
-            Services
-          </h3>
-          <ul class="space-y-3">
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Growth Strategy</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Marketing Optimization</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Sales Enablement</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Operations Scaling</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Funding Support</a></li>
-            <li><a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Analytics & Insights</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Bottom Section -->
-      <div class="border-t border-gray-800 mt-12 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 mb-4 md:mb-0">
-            © 2024 Zendog Labs. All rights reserved.
-          </div>
-          <div class="flex space-x-6">
-            <a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Privacy Policy</a>
-            <a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Terms of Service</a>
-            <a href="#" class="font-body text-normal-text font-body leading-body tracking-body text-gray-400 hover:text-emerald-400 transition-colors">Cookie Policy</a>
+            <div class="grid grid-cols-4 gap-2 mt-4 w-full">
+            <img src="/images/Logos+-+Social+Proof+-+Website+-+Trustpilot%2C+Clutch%2C+Upwork++(1).png" class="" alt="">
+            <img src="/images/Untitled+design+(1).webp" class="" alt="">
+            <img src="/images/hero_upwork.png" class="" alt="">
+            <img src="/images/hero_google.png" class="" alt="">
+            <img src="/images/footer_cluch_1.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_2.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_3.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_4.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_5.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_6.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_7.png" alt="Clutch Award"
+              class="" />
+            <img src="/images/footer_cluch_8.png" alt="Clutch Award"
+              class="" />
           </div>
         </div>
       </div>
@@ -80,5 +63,5 @@
 </template>
 
 <script setup>
-// No additional logic needed for this component
+// No logic needed
 </script>

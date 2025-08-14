@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="bg-black">
     <HeroSection />
     <CompanyLogos />
     <TripleThreat />

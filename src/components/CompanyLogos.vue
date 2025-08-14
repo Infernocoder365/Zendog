@@ -1,5 +1,5 @@
 <template>
-  <section class="py-[calc(25vmax/10)] bg-bg-secondary overflow-hidden">
+  <section class="py-[calc(25vmax/10)] overflow-hidden">
     <div class="relative z-[14] w-full text-text-primary grid col-[1/-1] row-[1/-1] [--grid-gutter:calc(10vw_-_5.0px)] [--container-width:min(1900px,calc(100vw_-_10vw_*_2_-_0vw))] [--cell-max-width:calc((1900px_-_(5.0px_*_(24_-_1)))_/_24)] grid-rows-[repeat(6,minmax(calc(var(--container-width)_*_0.0215),auto))] grid-cols-[minmax(var(--grid-gutter),1fr)_repeat(24,minmax(0,var(--cell-max-width)))_minmax(var(--grid-gutter),1fr)] gap-[5px]">
       <!-- Section Header -->
       <div class="row-[1/2] col-[2/12]">

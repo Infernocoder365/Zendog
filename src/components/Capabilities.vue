@@ -1,9 +1,9 @@
 <template>
-  <section class="py-20 bg-black">
+  <section class="pb-20">
     <div class="container mx-auto px-4 lg:px-8">
       <!-- Section Header -->
       <div class="text-center mb-16">
-        <h2 class="font-heading text-heading-2 font-heading leading-heading tracking-heading text-primary mb-4">
+        <h2 class="font-heading text-heading-2 leading-heading tracking-heading text-primary mb-4">
           Capabilities for accelerated growth
         </h2>
         <p class="font-body text-base font-body leading-body tracking-body text-text-secondary max-w-4xl mx-auto px-10">

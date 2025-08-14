@@ -1,11 +1,16 @@
 <template>
-  <section class="w-full bg-black py-16 md:py-24">
+  <section class="w-full py-16 md:py-24">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
       <!-- Header Section -->
-      <div class="text-center md:mb-16">
-        <h2 class="text-2xl font-bold text-white mb-6">
+      <div class="text-center md:mb-16 mt-10 relative">
+        <h2 ref="headerText" class="text-2xl font-bold text-white mb-6 inline-block">
           In strategic partnership with
         </h2>
+        <div ref="underline" class="TextShape-node absolute" :style="underlineStyle">
+          <svg :width="svgWidth" height="32">
+            <path :d="svgPath" vector-effect="non-scaling-stroke" stroke="hsla(var(--white-hsl),1)" stroke-width="0.1em" stroke-linecap="square" stroke-linejoin="bevel" fill="none" :stroke-dasharray="svgWidth" :stroke-dashoffset="svgWidth * 2"></path>
+          </svg>
+        </div>
       </div>
 
       <!-- Grid Layout -->
@@ -61,9 +66,48 @@
 </template>
 
 <script setup>
-// No longer needed since we're using inline HTML
-</script>
+import { ref, onMounted, computed } from 'vue'
 
-<style scoped>
-/* Additional custom styles if needed */
-</style>
+const headerText = ref(null)
+const underline = ref(null)
+
+const svgWidth = computed(() => {
+  if (!headerText.value) return 0
+  return headerText.value.offsetWidth
+})
+
+const svgPath = computed(() => {
+  const width = svgWidth.value
+  const x1 = 0
+  const x2 = width / 2
+  const x3 = width
+  return `M ${x1},31.68 c ${width/4},-0.88 ${width/2},-2.72 ${x2},-3.52 c ${width/2},-0.8 ${width * 0.76},0 ${x3},0.32 c 3.24,0.064 -2.56,0.912 -2.7,0.96`
+})
+
+const underlineStyle = computed(() => ({
+  fontSize: '22px',
+  opacity: 1,
+  transform: 'scale(1)',
+  left: '0',
+  top: '100%',
+  position: 'absolute',
+  display: 'block',
+  pointerEvents: 'none',
+  WebkitUserSelect: 'none',
+  visibility: 'visible',
+  transition: 'opacity .25s ease-out, visibility .25s ease-out',
+  mixBlendMode: 'none'
+}))
+
+onMounted(() => {
+  if (underline.value) {
+    const path = underline.value.querySelector('path')
+    if (path) {
+      setTimeout(() => {
+        path.style.strokeDashoffset = '0'
+        path.style.transition = 'stroke-dashoffset 1s ease-in-out'
+      }, 100)
+    }
+  }
+})
+</script>
