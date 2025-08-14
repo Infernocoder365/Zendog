@@ -1,9 +1,9 @@
 <template>
-  <section class="pb-20">
+  <section class="pb-12 sm:pb-16 md:pb-20">
     <div class="container mx-auto px-4 lg:px-8">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="font-heading text-heading-2 leading-heading tracking-heading text-primary mb-4">
+      <div class="text-center mb-8 sm:mb-12 md:mb-16">
+        <h2 class="font-heading text-xl sm:text-2xl md:text-heading-2 leading-tight sm:leading-heading tracking-heading text-primary mb-2 sm:mb-3 md:mb-4">
           Frequently asked questions
         </h2>
       </div>
@@ -13,23 +13,23 @@
         <div 
           v-for="(item, index) in faqItems" 
           :key="index"
-          class="border-y mx-6 border-white overflow-hidden"
+          class="border-y mx-2 sm:mx-4 md:mx-6 border-white overflow-hidden"
         >
           <!-- Question -->
           <button 
             @click="toggleFAQ(index)"
-            class="w-full px-0 py-4 text-left transition-colors duration-200 flex justify-between items-center"
+            class="w-full px-0 py-3 sm:py-4 text-left transition-colors duration-200 flex justify-between items-center"
           >
-            <h3 class="font-body text-heading-4 leading-heading tracking-heading text-white">
+            <h3 class="font-body text-base sm:text-lg md:text-heading-4 leading-tight sm:leading-heading tracking-heading text-white pr-2">
               {{ item.question }}
             </h3>
             <div 
-              class="h-4 w-4 flex items-center justify-center" 
+              class="h-4 w-4 flex-shrink-0 flex items-center justify-center" 
               :data-is-open="openItems[index]" 
               aria-hidden="true"
             >
               <!-- Plus Icon -->
-              <span class="relative block w-3.5 h-3.5">
+              <span class="relative block w-3 sm:w-3.5 h-3 sm:h-3.5">
                 <!-- Horizontal line -->
                 <span class="absolute left-0 right-0 top-1/2 w-full h-0.5 bg-white -translate-y-1/2"></span>
                 <!-- Vertical line, rotates when closed -->
@@ -49,7 +49,7 @@
             ]"
           >
             <div
-              class="text-lg text-white min-w-[70%] max-w-[300px] pb-[30px] faq-markdown ml-10"
+              class="text-sm sm:text-base md:text-lg text-white min-w-[70%] max-w-full sm:max-w-[300px] pb-[20px] sm:pb-[25px] md:pb-[30px] faq-markdown ml-4 sm:ml-6 md:ml-10"
               v-html="renderMarkdown(item.answer)"
             ></div>
           </div>

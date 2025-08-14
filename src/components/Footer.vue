@@ -1,14 +1,14 @@
 <template>
-  <footer class="bg-white py-12">
+  <footer class="bg-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-8">
     <div class="container mx-auto max-w-5xl">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8">
         <!-- Contact -->
-        <div class="md:col-span-3 text-center">
-          <h3 class="font-heading text-heading-4 leading-heading tracking-heading text-primary mb-6">Contact</h3>
-          <ul class="space-y-4 text-black text-base">
-            <li>e: <a href="mailto:hi@zendoglabs.com" class="transition">hi@zendoglabs.com</a>
+        <div class="sm:col-span-1 md:col-span-3 text-center sm:text-left">
+          <h3 class="font-heading text-xl sm:text-2xl md:text-heading-4 leading-tight sm:leading-heading tracking-heading text-primary mb-4 sm:mb-5 md:mb-6">Contact</h3>
+          <ul class="space-y-2 sm:space-y-3 md:space-y-4 text-black text-sm sm:text-base">
+            <li>e: <a href="mailto:hi@zendoglabs.com" class="transition hover:text-primary">hi@zendoglabs.com</a>
             </li>
-            <li>m: <a href="tel:+41764782886" class="transition">+41 76 479 82 86</a></li>
+            <li>m: <a href="tel:+41764782886" class="transition hover:text-primary">+41 76 479 82 86</a></li>
             <li>Zurich, Switzerland</li>
             <li>Cologne, Germany</li>
             <li>Istanbul, Turkey</li>
@@ -17,44 +17,47 @@
         </div>
 
         <!-- Navigation -->
-        <div class="md:col-span-4 text-center">
-          <h3 class="font-heading text-heading-4 leading-heading tracking-heading text-primary mb-6">Navigation</h3>
-          <ul class="space-y-4 text-black text-base">
-            <li><a href="#" class="transition">Home</a></li>
-            <li><a href="#" class="transition">Team</a></li>
-            <li><a href="#" class="transition">Case Studies</a></li>
-            <li><a href="#" class="transition">Vlog</a></li>
-            <li><a href="#" class="transition">Website Credits</a></li>
-            <li><a href="#" class="transition">Privacy Policy</a></li>
+        <div class="sm:col-span-1 md:col-span-4 text-center sm:text-left mt-8 sm:mt-0">
+          <h3 class="font-heading text-xl sm:text-2xl md:text-heading-4 leading-tight sm:leading-heading tracking-heading text-primary mb-4 sm:mb-5 md:mb-6">Navigation</h3>
+          <ul class="space-y-2 sm:space-y-3 md:space-y-4 text-black text-sm sm:text-base">
+            <li><a href="#" class="transition hover:text-primary">Home</a></li>
+            <li><a href="#" class="transition hover:text-primary">Team</a></li>
+            <li><a href="#" class="transition hover:text-primary">Case Studies</a></li>
+            <li><a href="#" class="transition hover:text-primary">Vlog</a></li>
+            <li><a href="#" class="transition hover:text-primary">Website Credits</a></li>
+            <li><a href="#" class="transition hover:text-primary">Privacy Policy</a></li>
           </ul>
-          <div class="mt-6 text-gray-400 text-sm">&copy; 2025 Zendog Labs</div>
+          <div class="mt-4 sm:mt-5 md:mt-6 text-gray-400 text-xs sm:text-sm">&copy; 2025 Zendog Labs</div>
         </div>
 
         <!-- Badges / Awards -->
-        <div class="md:col-span-5 flex flex-col items-start">
+        <div class="sm:col-span-2 md:col-span-5 flex flex-col items-center sm:items-start mt-8 md:mt-0">
+            <h3 class="font-heading text-xl sm:text-2xl md:text-heading-4 leading-tight sm:leading-heading tracking-heading text-primary mb-4 sm:mb-5 md:mb-6 sm:hidden md:block">Awards & Recognition</h3>
             <div class="flex justify-center items-center gap-2">
             </div>
-            <div class="grid grid-cols-4 gap-2 mt-4 w-full">
-            <img src="/images/Logos+-+Social+Proof+-+Website+-+Trustpilot%2C+Clutch%2C+Upwork++(1).png" class="" alt="">
-            <img src="/images/Untitled+design+(1).webp" class="" alt="">
-            <img src="/images/hero_upwork.png" class="" alt="">
-            <img src="/images/hero_google.png" class="" alt="">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-2 mt-2 sm:mt-3 md:mt-4 w-full">
+            <img src="/images/Logos+-+Social+Proof+-+Website+-+Trustpilot%2C+Clutch%2C+Upwork++(1).png" class="w-full h-auto object-contain" alt="Trustpilot">
+            <img src="/images/Untitled+design+(1).webp" class="w-full h-auto object-contain" alt="Award">
+            <img src="/images/hero_upwork.png" class="w-full h-auto object-contain" alt="Upwork">
+            <img src="/images/hero_google.png" class="w-full h-auto object-contain" alt="Google">
+            </div>
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 md:gap-2 mt-2 sm:mt-3 md:mt-4 w-full">
             <img src="/images/footer_cluch_1.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_2.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_3.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_4.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_5.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_6.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_7.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
             <img src="/images/footer_cluch_8.png" alt="Clutch Award"
-              class="" />
+              class="w-full h-auto object-contain" />
           </div>
         </div>
       </div>

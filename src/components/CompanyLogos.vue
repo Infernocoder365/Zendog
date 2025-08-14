@@ -1,20 +1,20 @@
 <template>
-  <section class="py-[calc(25vmax/10)] overflow-hidden">
-    <div class="relative z-[14] w-full text-text-primary grid col-[1/-1] row-[1/-1] [--grid-gutter:calc(10vw_-_5.0px)] [--container-width:min(1900px,calc(100vw_-_10vw_*_2_-_0vw))] [--cell-max-width:calc((1900px_-_(5.0px_*_(24_-_1)))_/_24)] grid-rows-[repeat(6,minmax(calc(var(--container-width)_*_0.0215),auto))] grid-cols-[minmax(var(--grid-gutter),1fr)_repeat(24,minmax(0,var(--cell-max-width)))_minmax(var(--grid-gutter),1fr)] gap-[5px]">
+  <section class="py-[calc(15vmax/10)] sm:py-[calc(20vmax/10)] md:py-[calc(25vmax/10)] overflow-hidden">
+    <div class="relative z-[14] w-full text-text-primary grid col-[1/-1] row-[1/-1] [--grid-gutter:calc(5vw_-_5.0px)] sm:[--grid-gutter:calc(7vw_-_5.0px)] md:[--grid-gutter:calc(10vw_-_5.0px)] [--container-width:min(1900px,calc(100vw_-_5vw_*_2_-_0vw))] sm:[--container-width:min(1900px,calc(100vw_-_7vw_*_2_-_0vw))] md:[--container-width:min(1900px,calc(100vw_-_10vw_*_2_-_0vw))] [--cell-max-width:calc((1900px_-_(5.0px_*_(24_-_1)))_/_24)] grid-rows-[repeat(6,minmax(calc(var(--container-width)_*_0.0215),auto))] grid-cols-[minmax(var(--grid-gutter),1fr)_repeat(24,minmax(0,var(--cell-max-width)))_minmax(var(--grid-gutter),1fr)] gap-[5px]">
       <!-- Section Header -->
-      <div class="row-[1/2] col-[2/12]">
-        <h2 class="font-heading text-3xl font-heading leading-heading tracking-heading text-primary mb-4">
+      <div class="row-[1/2] col-[2/25] sm:col-[2/20] md:col-[2/12]">
+        <h2 class="font-heading text-xl sm:text-2xl md:text-3xl font-heading leading-tight sm:leading-heading tracking-heading text-primary mb-2 sm:mb-3 md:mb-4">
           You're in good company
         </h2>
       </div>
 
       <!-- Logo Carousel -->
-      <div class="relative row-[2/6] col-[2/24] overflow-x-hidden">
+      <div class="relative row-[2/6] col-[2/26] sm:col-[2/25] md:col-[2/24] overflow-x-hidden">
         <div class="marquee-container flex flex-row relative w-full">
           <div class="marquee-content flex-none min-w-max z-[1] flex flex-row items-center">
             <div class="inline-flex">
               <div v-for="(logo, index) in [...logos, ...logos]" :key="`${logo.name}-${index}`" 
-                   class="mx-[5px] w-32 max-h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                   class="mx-[3px] sm:mx-[4px] md:mx-[5px] w-20 sm:w-24 md:w-32 max-h-12 sm:max-h-16 md:max-h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
                 <img :src="logo.src" :alt="logo.name" class="max-w-full max-h-full object-contain">
               </div>
             </div>

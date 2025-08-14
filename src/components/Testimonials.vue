@@ -2,29 +2,29 @@
   <section>
     <div class="container mx-auto px-4 lg:px-8">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="font-heading text-heading-2 leading-heading tracking-heading text-primary mb-4">
+      <div class="text-center mb-8 md:mb-12 lg:mb-16">
+        <h2 class="font-heading text-heading-2 leading-heading tracking-heading text-primary mb-2 md:mb-4 text-xl sm:text-2xl md:text-3xl lg:text-heading-2">
           Track record of success
         </h2>
-        <p class="font-body font-body leading-body tracking-body text-white max-w-3xl mx-auto">
-          Don’t just take our word for it—hear from the many satisfied clients who have tapped into Zendog Labs'
+        <p class="font-body font-body leading-body tracking-body text-white max-w-3xl mx-auto text-sm sm:text-base lg:text-normal-text">
+          Don't just take our word for it—hear from the many satisfied clients who have tapped into Zendog Labs'
           expertise in strategy, marketing, sales, and finance.
         </p>
       </div>
 
       <!-- Testimonials Carousel -->
-      <div class="relative max-w-2xl mx-auto">
+      <div class="relative max-w-full sm:max-w-xl md:max-w-2xl mx-auto">
         <!-- Testimonial Cards -->
-        <div class="relative min-h-[350px] overflow-hidden">
+        <div class="relative min-h-[300px] sm:min-h-[320px] md:min-h-[350px] overflow-hidden">
           <div v-for="(testimonial, index) in testimonials" :key="index" :class="[
             'absolute inset-0 transition-transform duration-500 ease-in-out',
             currentIndex === index ? 'translate-x-0' :
               index < currentIndex ? '-translate-x-full' : 'translate-x-full'
           ]">
-            <div class="bg-transparent p-8 pb-0 rounded-lg shadow-lg text-center">
+            <div class="bg-transparent p-4 sm:p-6 md:p-8 pb-0 rounded-lg shadow-lg text-center">
               <!-- Stars -->
-              <div class="flex justify-center mb-6">
-                <div v-for="n in 5" :key="n" class="text-yellow-400 text-2xl w-[16px] h-[16px]"><svg viewBox="0 0 14 14"
+              <div class="flex justify-center mb-3 sm:mb-4 md:mb-6">
+                <div v-for="n in 5" :key="n" class="text-yellow-400 text-xl sm:text-2xl w-[14px] h-[14px] sm:w-[16px] sm:h-[16px]"><svg viewBox="0 0 14 14"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip_star)">
                       <path
@@ -40,31 +40,31 @@
               </div>
 
               <!-- Quote -->
-              <div class="mb-6">
+              <div class="mb-3 sm:mb-4 md:mb-6">
                 <blockquote :class="[
-                  'font-body text-sm font-body leading-body tracking-body text-white',
-                  !expandedQuotes[index] ? 'line-clamp-3' : ''
+                  'font-body text-xs sm:text-sm md:text-sm font-body leading-body tracking-body text-white',
+                  !expandedQuotes[index] ? 'line-clamp-2 sm:line-clamp-3' : ''
                 ]" :id="`quote-${index}`">
                   "{{ testimonial.quote }}"
                 </blockquote>
                 <button v-if="testimonial.quote.length > 150" @click="toggleQuote(index)"
-                  class="text-gray-400 hover:underline text-sm font-medium">
+                  class="text-gray-400 hover:underline text-xs sm:text-sm font-medium mt-1">
                   {{ expandedQuotes[index] ? 'Read less' : 'Read more' }}
                 </button>
               </div>
 
               <!-- Author -->
               <div class="flex items-center justify-center flex-col">
-                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-full flex items-center justify-center">
                   <img :src="testimonial.avatar" :alt="testimonial.author"
                     class="w-full h-full rounded-full object-cover">
                 </div>
                 <div class="flex flex-col justify-center items-center">
                   <div
-                    class="font-heading text-sm leading-heading tracking-heading text-white flex items-center text-center w-full justify-center">
+                    class="font-heading text-xs sm:text-sm leading-heading tracking-heading text-white flex items-center text-center w-full justify-center">
                     {{ testimonial.author }}
-                    <div v-if="testimonial.verified" class="ml-2" aria-label="Verified Customer" role="img">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" class="w-4 h-4"
+                    <div v-if="testimonial.verified" class="ml-1 sm:ml-2" aria-label="Verified Customer" role="img">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" class="w-3 h-3 sm:w-4 sm:h-4"
                         aria-hidden="true">
                         <path fill="#197BFF"
                           d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z">
@@ -75,11 +75,11 @@
                       </svg>
                     </div>
                   </div>
-                  <div class="font-body text-sm font-body leading-body tracking-body text-white flex items-center">
+                  <div class="font-body text-xs sm:text-sm font-body leading-body tracking-body text-white flex items-center">
                     {{ testimonial.position }}
                   </div>
                   <img v-if="testimonial.companyLogo" :src="testimonial.companyLogo" :alt="testimonial.company"
-                    class="h-[30px]">
+                    class="h-[20px] sm:h-[25px] md:h-[30px] mt-1">
                 </div>
               </div>
             </div>
@@ -88,8 +88,8 @@
 
         <!-- Navigation Arrows -->
         <button @click="previousTestimonial"
-          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-black hover:bg-white text-large-text w-[32px] h-[32px]">
-          <div class="text-xl w-[16px] h-[16px] m-auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-black hover:bg-white text-large-text w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] md:w-[32px] md:h-[32px] -ml-2 sm:ml-0">
+          <div class="text-lg sm:text-xl w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] m-auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <path fill-rule="evenodd"
                 d="M8.96 1.96a1 1 0 0 1 1.497 1.32l-.083.094L5.747 8l4.627 4.626a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.32.084l-.094-.084-5.334-5.333a1 1 0 0 1-.083-1.32l.083-.094L8.96 1.96Z">
               </path>
@@ -97,7 +97,7 @@
         </button>
 
         <button @click="nextTestimonial"
-          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-black hover:bg-white text-large-text w-[32px] h-[32px]">
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-black hover:bg-white text-large-text w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] md:w-[32px] md:h-[32px] -mr-2 sm:mr-0">
           <div class="text-xl w-[16px] h-[16px] m-auto">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <path fill-rule="evenodd"
@@ -107,15 +107,15 @@
           </div>
         </button>
 
-        <div class="text-center mb-16">
-          <p class="font-body font-body leading-body tracking-body text-white max-w-3xl mx-auto">
+        <div class="text-center mb-8 sm:mb-12 md:mb-16">
+          <p class="font-body font-body leading-body tracking-body text-white max-w-3xl mx-auto text-xs sm:text-sm md:text-base">
             Click below for more 5-star reviews
           </p>
-          <div class="flex justify-center items-center w-full  max-w-2xl mx-auto gap-4 mt-2">
-            <img src="/images/hero_trustpilot.png" class="w-1/5 p-2" alt="">
-            <img src="/images/hero_clutch.png" class="w-1/5 p-2" alt="">
-            <img src="/images/hero_upwork.png" class="w-1/5 p-2" alt="">
-            <img src="/images/hero_google.png" class="w-1/5 p-2" alt="">
+          <div class="flex justify-center items-center w-full max-w-full sm:max-w-xl md:max-w-2xl mx-auto gap-2 sm:gap-3 md:gap-4 mt-2">
+            <img src="/images/hero_trustpilot.png" class="w-1/5 p-1 sm:p-2" alt="">
+            <img src="/images/hero_clutch.png" class="w-1/5 p-1 sm:p-2" alt="">
+            <img src="/images/hero_upwork.png" class="w-1/5 p-1 sm:p-2" alt="">
+            <img src="/images/hero_google.png" class="w-1/5 p-1 sm:p-2" alt="">
           </div>
         </div>
       </div>
