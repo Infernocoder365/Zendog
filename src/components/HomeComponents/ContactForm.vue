@@ -1,5 +1,5 @@
 <template>
-  <section class="pb-12 sm:pb-16 md:pb-20 bg-white relative">
+  <section id="contact" class="pb-12 sm:pb-16 md:pb-20 bg-white relative">
     <div
       class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-[12] aspect-[1600/780] bg-black"
       style="clip-path: url(#section-divider-hero);">

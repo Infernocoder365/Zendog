@@ -1,0 +1,56 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6b21a8" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+    <radialGradient id="glowEffect" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#6b21a8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Glowing background effect -->
+  <circle cx="250" cy="250" r="200" fill="url(#glowEffect)" />
+  
+  <!-- Stylized dog silhouette -->
+  <g transform="translate(100, 100) scale(0.6)">
+    <!-- Dog head -->
+    <path d="M250 100 C350 100, 380 200, 350 250 C320 300, 250 320, 200 300 C150 280, 120 220, 150 170 C180 120, 220 100, 250 100 Z" 
+          fill="url(#purpleGradient)" stroke="#d8b4fe" stroke-width="3" />
+    
+    <!-- Dog ears -->
+    <path d="M170 150 C150 100, 100 80, 80 120 C60 160, 90 180, 130 170 Z" 
+          fill="url(#purpleGradient)" stroke="#d8b4fe" stroke-width="2" />
+    <path d="M330 150 C350 100, 400 80, 420 120 C440 160, 410 180, 370 170 Z" 
+          fill="url(#purpleGradient)" stroke="#d8b4fe" stroke-width="2" />
+    
+    <!-- Dog eyes -->
+    <circle cx="200" cy="200" r="15" fill="#f5f5f5" />
+    <circle cx="300" cy="200" r="15" fill="#f5f5f5" />
+    <circle cx="200" cy="200" r="8" fill="#1a1a1a" />
+    <circle cx="300" cy="200" r="8" fill="#1a1a1a" />
+    
+    <!-- Dog nose -->
+    <ellipse cx="250" cy="240" rx="20" ry="15" fill="#1a1a1a" />
+    
+    <!-- Zen symbol on forehead -->
+    <circle cx="250" cy="150" r="20" fill="none" stroke="#f5f5f5" stroke-width="3" />
+    <path d="M230 150 L270 150 M250 130 L250 170" stroke="#f5f5f5" stroke-width="3" />
+  </g>
+  
+  <!-- Digital circuit patterns -->
+  <g stroke="#d8b4fe" stroke-width="1.5" fill="none">
+    <path d="M50 250 L100 250 L120 230 L150 230" />
+    <path d="M450 250 L400 250 L380 230 L350 230" />
+    <path d="M250 450 L250 400 L270 380 L270 350" />
+    <path d="M250 50 L250 100 L230 120 L230 150" />
+    
+    <!-- Circuit nodes -->
+    <circle cx="150" cy="230" r="4" fill="#d8b4fe" />
+    <circle cx="350" cy="230" r="4" fill="#d8b4fe" />
+    <circle cx="270" cy="350" r="4" fill="#d8b4fe" />
+    <circle cx="230" cy="150" r="4" fill="#d8b4fe" />
+  </g>
+</svg>

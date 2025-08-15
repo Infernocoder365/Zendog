@@ -1,16 +1,14 @@
 <script setup>
 import Header from './components/Header.vue'
-import MainContent from './components/MainContent.vue'
 import Footer from './components/Footer.vue'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-bg-primary">
+  <div class="min-h-screen flex flex-col bg-bg-primary max-w-screen overflow-hidden">
     <Header />
-    <MainContent class="flex-grow" />
+    <router-view class="flex-grow" />
     <Footer />
   </div>
-  
 </template>
 
 <style>

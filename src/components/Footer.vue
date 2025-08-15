@@ -32,7 +32,6 @@
 
         <!-- Badges / Awards -->
         <div class="sm:col-span-2 md:col-span-5 flex flex-col items-center sm:items-start mt-8 md:mt-0">
-            <h3 class="font-heading text-xl sm:text-2xl md:text-heading-4 leading-tight sm:leading-heading tracking-heading text-primary mb-4 sm:mb-5 md:mb-6 sm:hidden md:block">Awards & Recognition</h3>
             <div class="flex justify-center items-center gap-2">
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-2 mt-2 sm:mt-3 md:mt-4 w-full">

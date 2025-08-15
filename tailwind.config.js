@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['Poppins', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+    },
     extend: {
       // Color System
       colors: {
