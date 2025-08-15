@@ -6,7 +6,6 @@
     <PricingPlans />
     <StatsSection />
     <TestimonialsSection />
-    <FaqSection />
     <ContactSection />
   </main>
 </template>
@@ -19,6 +18,5 @@ import ProcessSection from '../components/PitchDeckComponents/ProcessSection.vue
 import PricingPlans from '../components/PitchDeckComponents/PricingPlans.vue';
 import StatsSection from '../components/PitchDeckComponents/StatsSection.vue';
 import TestimonialsSection from '../components/PitchDeckComponents/TestimonialsSection.vue';
-import FaqSection from '../components/PitchDeckComponents/FaqSection.vue';
 import ContactSection from '../components/PitchDeckComponents/ContactSection.vue';
 </script>

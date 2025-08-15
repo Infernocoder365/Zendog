@@ -2,46 +2,35 @@
   <section class="bg-black text-white py-16">
     <div class="container mx-auto px-4 md:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">You're in good company</h2>
-        <p class="text-gray-400 max-w-3xl mx-auto">
-          Join hundreds of successful founders who have used our pitch decks to secure funding
-        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">You're in good company</h2>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <!-- Stat 1 -->
-        <div class="bg-gray-900 rounded-lg p-8 text-center">
-          <div class="text-4xl md:text-5xl font-bold text-green-400 mb-4">100+</div>
-          <p class="text-lg">Startups Funded</p>
-        </div>
-        
-        <!-- Stat 2 -->
-        <div class="bg-gray-900 rounded-lg p-8 text-center">
-          <div class="text-4xl md:text-5xl font-bold text-green-400 mb-4">$38M+</div>
-          <p class="text-lg">Funding Raised</p>
-        </div>
-        
-        <!-- Stat 3 -->
-        <div class="bg-gray-900 rounded-lg p-8 text-center">
-          <div class="text-4xl md:text-5xl font-bold text-green-400 mb-4">100%</div>
-          <p class="text-lg">Satisfaction Rate</p>
-        </div>
-      </div>
-      
-      <div class="text-center mb-12">
-        <h3 class="text-2xl font-bold mb-8">Trusted by founders from companies like</h3>
-        <div class="flex flex-wrap justify-center items-center gap-8">
-          <!-- <img src="/images/logos/logo1.png" alt="Company logo" class="h-8 opacity-70 hover:opacity-100 transition duration-300" />
-          <img src="/images/logos/logo2.png" alt="Company logo" class="h-8 opacity-70 hover:opacity-100 transition duration-300" />
-          <img src="/images/logos/logo3.png" alt="Company logo" class="h-8 opacity-70 hover:opacity-100 transition duration-300" />
-          <img src="/images/logos/logo4.png" alt="Company logo" class="h-8 opacity-70 hover:opacity-100 transition duration-300" />
-          <img src="/images/logos/logo5.png" alt="Company logo" class="h-8 opacity-70 hover:opacity-100 transition duration-300" /> -->
+
+
+      <!-- Logo Carousel -->
+      <div class="relative overflow-x-hidden mx-auto">
+        <div class="flex flex-row relative w-full justify-center">
+          <div class="inline-flex  max-w-5xl  border-y border-white py-5">
+            <div v-for="(logo, index) in [...logos]" :key="`${logo.name}-${index}`"
+              class="mx-[3px] sm:mx-[4px] md:mx-[5px] w-20 sm:w-24 md:w-32 max-h-12 sm:max-h-16 md:max-h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+              <img :src="logo.src" :alt="logo.name" class="max-w-full max-h-full object-contain">
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
 
+
 <script setup>
-// No additional logic needed for this component
+const logos = [
+  { name: 'Funden', src: '/images/deck/Funden++-+white+-+200x100.png' },
+  { name: 'SO10.', src: '/images/deck/Solo+-+200x100.png' },
+  { name: 'Replayable.', src: '/images/deck/Logo+-+Replayable.png' },
+  { name: 'Bird', src: '/images/deck/Bird+-+200x100.png' },
+  { name: 'LeadsMarket', src: '/images/deck/LeadsMarket+-+200x100.png' },
+  { name: 'datrix', src: '/images/deck/Datrix+-+200x100.png' }
+];
 </script>
+
+<style scoped></style>
