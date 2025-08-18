@@ -45,12 +45,12 @@
           <div
             :class="[
               'overflow-hidden transition-all duration-300',
-              openItems[index] ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+              openItems[index] ? 'opacity-100' : 'max-h-0 opacity-0'
             ]"
           >
             <div
-              class="text-sm sm:text-base md:text-lg text-white min-w-[70%] max-w-full sm:max-w-[300px] pb-[20px] sm:pb-[25px] md:pb-[30px] faq-markdown ml-4 sm:ml-6 md:ml-10"
-              v-html="renderMarkdown(item.answer)"
+              class="text-sm sm:text-base md:text-lg text-white min-w-[80%] max-w-full sm:max-w-[400px] pb-[20px] sm:pb-[25px] md:pb-[30px] faq-markdown ml-4 sm:ml-6 md:ml-10"
+              v-html="processMarkdown(item.answer)"
             ></div>
           </div>
         </div>
@@ -61,7 +61,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { marked } from 'marked'
+import { renderMarkdown } from '../../utils/markdownRenderer'
 const openItems = ref({})
 
 const faqItems = [
@@ -110,7 +110,15 @@ const faqItems = [
   }
 ]
 
-const renderMarkdown = (md) => marked.parse(md)
+// Use the imported renderMarkdown function from markdownRenderer.js
+const processMarkdown = (md) => {
+  try {
+    return renderMarkdown(md);
+  } catch (error) {
+    console.error('Error rendering markdown in FAQ:', error);
+    return String(md || '');
+  }
+}
 const toggleFAQ = (index) => {
   openItems.value[index] = !openItems.value[index]
 }

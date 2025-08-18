@@ -67,7 +67,7 @@
               <a v-if="selectedMember.email" :href="`mailto:${selectedMember.email}`"
                 class="text-[#FF2E93] hover:underline mb-2 text-sm">{{ selectedMember.email }}</a>
               <div class="text-base mt-4 text-sm prose prose-sm max-w-none"
-                v-html="renderMarkdown(selectedMember.detail)"></div>
+                v-html="processMarkdown(selectedMember.detail)"></div>
               <div><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer"
                   class="text-gray-400 hover:text-white transition-colors">
                   <span class="sr-only">LinkedIn</span>
@@ -86,7 +86,7 @@
 
 <script setup>
 import { ref, computed, watch, onUnmounted } from 'vue';
-import { marked } from 'marked';
+import { renderMarkdown } from '../../utils/markdownRenderer';
 
 const teamMembers = ref([
   {
@@ -172,5 +172,12 @@ onUnmounted(() => {
   document.body.classList.remove('overflow-hidden');
 });
 
-const renderMarkdown = (md) => marked.parse(md);
+const processMarkdown = (md) => {
+  try {
+    return renderMarkdown(md);
+  } catch (error) {
+    console.error('Error rendering markdown in TeamValues:', error);
+    return String(md || '');
+  }
+};
 </script>
