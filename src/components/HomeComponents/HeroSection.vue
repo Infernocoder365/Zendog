@@ -25,10 +25,11 @@
         </p>
       </div>
       <div class="max-w-4xl row-[12/14] col-[2/25] sm:col-[2/10] md:col-[2/8] z-0">
-        <div
+        <button
+          @click="goToContact"
           class="w-full h-full bg-primary hover:bg-primary/90 text-primary-button font-primary-button text-sm sm:text-base font-semibold leading-primary-button tracking-primary-button px-4 sm:px-primary-button-padding-x py-3 sm:py-0 rounded-primary-button transition-colors duration-200 flex items-center justify-center">
           Learn more
-        </div>
+        </button>
       </div>
       <div class="hidden md:block row-[15/16] col-[2/4]">
         <img src="/images/hero_trustpilot.png" alt="Trustpilot" class="h-6 sm:h-8 md:h-auto w-auto object-contain">
@@ -63,5 +64,17 @@
 </template>
 
 <script setup>
-// No additional logic needed for this component
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
+const goToContact = () => {
+  if (route.path === '/') {
+    const el = document.querySelector('#contact')
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  } else {
+    router.push({ path: '/', hash: '#contact' })
+  }
+}
 </script>

@@ -34,15 +34,22 @@
       </div>
     </div>
     <div class="w-full flex items-center justify-center">
-      <a class="mt-8 max-w-xl w-full bg-primary text-black py-3 px-8 rounded-md transition duration-300 text-lg font-base text-center">
+      <button @click="goToPricing" class="mt-8 max-w-xl w-full bg-primary text-black py-3 px-8 rounded-md transition duration-300 text-lg font-base text-center hover:bg-primary/90">
           I want a winning pitch deck
-      </a>
+      </button>
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goToPricing = () => {
+  router.push('/pitch-deck-creation#pricing');
+}
 
 const processSteps = ref([
   {

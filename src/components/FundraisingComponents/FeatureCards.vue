@@ -14,10 +14,12 @@
             class="font-base text-sm sm:text-base font-normal leading-relaxed sm:leading-body tracking-body text-black text-center">
             {{ card.description }}
           </p>
-          <a
-            class="mt-2 bg-primary text-black px-12 rounded-md transition duration-300 text-md font-heading text-center">
+          <router-link
+            :to="{ name: 'home', hash: '#contact' }"
+            class="w-full bg-[#FF2E93] hover:bg-[#FF2E93]/90 text-white font-header-button text-body leading-header-button tracking-header-button py-4 rounded-md transition-colors duration-200 text-center block"
+          >
             Schedule call
-        </a>
+          </router-link>
         </div>
         <img :src="card.icon" :alt="card.title" class="h-[100px] sm:h-[40%] mb-4 sm:mb-0">
       </div>

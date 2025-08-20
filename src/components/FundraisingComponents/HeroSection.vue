@@ -10,10 +10,12 @@
           You became an entrepreneur to build a unicorn that makes a lasting impact. Imagine, just for a moment, the
           thrill of millions hitting your bank account to fuel your vision.
         </p>
-        <a
-          class="mt-20 max-w-xl w-full bg-primary text-black py-3 px-8 rounded-md transition duration-300 text-lg font-heading">
+        <router-link
+          :to="{ name: 'home', hash: '#contact' }"
+          class="mt-2 bg-primary text-black px-12 rounded-md transition duration-300 text-md font-heading text-center"
+        >
           Schedule strategy call
-        </a>
+        </router-link>
         <div class="mt-5 max-w-xl w-full flex justify-center items-center">
           <img class="w-1/4" src="/images/deck/1.png" />
           <img class="w-1/4" src="/images/deck/2.png" />

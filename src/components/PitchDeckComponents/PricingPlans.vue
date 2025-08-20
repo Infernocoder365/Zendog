@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-black text-white py-12">
+  <section id="pricing" class="bg-black text-white py-12">
     <div class="container mx-auto px-4 md:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary">Here's the full breakdown of our plans</h2>
@@ -29,10 +29,10 @@
             <div class="text-sm font-body mb-2 pb-8">{{ plan.description }}</div>
 
             <div class="text-center">
-              <button
-                class="bg-primary hover:bg-primary/90 text-white py-1 px-5 rounded-md transition duration-300 text-sm">
+              <router-link :to="{ name: 'home', hash: '#contact' }"
+                class="inline-block bg-primary hover:bg-primary/90 text-white py-1 px-5 rounded-md transition duration-300 text-sm">
                 CONTACT US
-              </button>
+              </router-link>
             </div>
           </div>
 

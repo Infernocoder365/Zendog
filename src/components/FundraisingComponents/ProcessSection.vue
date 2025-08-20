@@ -34,9 +34,12 @@
       </div>
     </div>
     <div class="w-full flex items-center justify-center">
-      <a class="mt-8 max-w-xl w-full bg-primary text-black py-3 px-8 rounded-md transition duration-300 text-lg font-base text-center">
-          Schedule strategy call
-      </a>
+      <router-link
+        :to="{ name: 'home', hash: '#contact' }"
+        class="mt-2 bg-primary text-black px-12 rounded-md transition duration-300 text-md font-heading text-center"
+      >
+        Schedule strategy call
+      </router-link>
     </div>
   </section>
 </template>

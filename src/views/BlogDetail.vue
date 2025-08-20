@@ -50,7 +50,7 @@
 
 
       <!-- Navigation buttons -->
-      <div class="mt-8 pt-6 flex justify-between max-w-6xl">
+      <div class="mt-8 pt-6 flex justify-between max-w-6xl mx-auto">
         <router-link v-if="prevPost" :to="`/blog/${prevPost.id}`" class="flex items-center max-w-[500px] text-2xl">
           <div class="pr-[25px]">
             <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
@@ -62,7 +62,8 @@
         <div v-else></div>
 
         <router-link v-if="nextPost" :to="`/blog/${nextPost.id}`" class="flex items-center max-w-[500px] text-2xl text-right">
-          {{ nextPost.title }} <div class="pl-[25px]">
+          {{ nextPost.title }}
+          <div class="pl-[25px]">
             <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
               <polyline fill="none" stroke-miterlimit="10" points="1.6,1.2 6.5,7.9 1.6,14.7" stroke="white"></polyline>
             </svg>
@@ -108,6 +109,11 @@ const loadPostData = async () => {
   }
 
   loading.value = false;
+
+  // Update document title to the post title
+  if (post.value && post.value.title) {
+    document.title = post.value.title;
+  }
 
   // Scroll to top when post changes
   window.scrollTo(0, 0);

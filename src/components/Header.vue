@@ -60,6 +60,7 @@
 
         <!-- CTA Button -->
         <button
+          @click="goToContact"
           class="hidden lg:block bg-primary hover:bg-primary text-primary-button font-header-button text-xs sm:text-sm md:text-[calc((var(--header-button-font-size)_-_1)_*_1.2vw_+_1rem)] font-semibold leading-header-button tracking-header-button px-3 sm:px-4 md:px-primary-button-padding-x py-auto h-[40px] sm:h-[45px] md:h-[53px] rounded-primary-button transition-colors duration-200 ml-[1vw] sm:ml-[1.5vw] md:ml-[2.5vw]">
           Learn more
         </button>
@@ -91,11 +92,6 @@
                 </router-link>
               </li>
             </ul>
-          </li>
-          
-          <!-- Guides -->
-          <li><a href="#guides"
-              class="text-text-secondary transition-colors font-body text-sm sm:text-base leading-body tracking-body block py-2">Guides</a>
           </li>
           
           <!-- Grand Slams -->
@@ -139,7 +135,7 @@
           </li>
           
           <li class="pt-2">
-            <button class="w-full bg-primary hover:bg-primary/90 text-primary-button font-header-button text-sm font-semibold leading-header-button tracking-header-button py-3 rounded-primary-button transition-colors duration-200">
+            <button @click="goToContact" class="w-full bg-primary hover:bg-primary/90 text-primary-button font-header-button text-sm font-semibold leading-header-button tracking-header-button py-3 rounded-primary-button transition-colors duration-200">
               Learn more
             </button>
           </li>
@@ -192,6 +188,11 @@ const toggleMobileMenu = () => {
 
 const toggleSubmenu = (submenu) => {
   openSubmenus[submenu] = !openSubmenus[submenu]
+}
+
+const goToContact = () => {
+  // Navigate to home with hash and rely on router scrollBehavior for smooth scroll
+  router.push({ path: '/', hash: '#contact' })
 }
 
 // Auto-open submenu based on current route

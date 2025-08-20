@@ -35,7 +35,7 @@
       </div>
 
       <!-- Navigation buttons -->
-      <div class="mt-8 pt-6 flex justify-between max-w-6xl">
+      <div class="mt-8 pt-6 flex justify-between max-w-6xl mx-auto">
         <router-link v-if="prevStudy" :to="`/case-studies/${prevStudy.id}`"
           class="flex items-center max-w-[500px] text-2xl">
           <div class="pr-[25px]">
@@ -95,6 +95,12 @@ const loadStudyData = async () => {
   }
 
   loading.value = false;
+
+  // Update document title to the case study title
+  if (study.value && study.value.title) {
+    document.title = study.value.title;
+  }
+
   window.scrollTo(0, 0);
 };
 

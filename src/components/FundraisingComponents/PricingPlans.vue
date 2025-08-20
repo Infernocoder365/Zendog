@@ -39,10 +39,10 @@
             <div class="text-xs font-body mb-2 pb-8">{{ plan.description }}</div>
 
             <div class="text-center">
-              <button
-                class="bg-primary hover:bg-primary/90 text-white py-1 px-5 rounded-md transition duration-300 text-sm">
+              <router-link :to="{ name: 'home', hash: '#contact' }"
+                class="inline-block bg-primary hover:bg-primary/90 text-white py-1 px-5 rounded-md transition duration-300 text-sm">
                 CONTACT US
-              </button>
+              </router-link>
             </div>
           </div>
 

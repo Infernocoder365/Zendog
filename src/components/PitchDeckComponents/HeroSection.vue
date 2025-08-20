@@ -10,9 +10,9 @@
           Elevate your fundraising game with a pitch deck that stands out from the crowd. Our team of proven VCs,
           founders, and advisors have the expertise to craft a winning pitch deck that investors can't ignore.
         </p>
-        <a class="mt-20 max-w-xl w-full bg-primary text-black py-3 px-8 rounded-md transition duration-300 text-lg font-heading">
+        <button @click="goToPricing" class="mt-20 max-w-xl w-full bg-primary text-black py-3 px-8 rounded-md transition duration-300 text-lg font-heading hover:bg-primary/90">
           I want a winning pitch deck
-        </a>
+        </button>
         <div class="mt-5 max-w-xl w-full flex justify-center items-center">
           <img class="w-1/4" src="/images/deck/1.png"/>
           <img class="w-1/4" src="/images/deck/2.png"/>
@@ -27,5 +27,11 @@
 </template>
 
 <script setup>
-// No additional logic needed for this component
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToPricing = () => {
+  router.push('/pitch-deck-creation#pricing')
+}
 </script>

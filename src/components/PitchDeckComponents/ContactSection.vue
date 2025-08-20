@@ -22,7 +22,7 @@
           </span>
         </h2>
         <div class="grow basis-0 min-w-0 flex items-center h-full basis-[30%]">
-          <button type="submit" :disabled="isSubmitting"
+          <button @click="goToPricing" type="button" :disabled="isSubmitting"
             class="bg-[#FF2E93] hover:bg-[#FF2E93]/90 text-white font-header-button text-body leading-header-button tracking-header-button px-4 sm:px-primary-button-padding-x w-full h-full transition-colors duration-200">
             Yes, let's start
           </button>
@@ -43,6 +43,13 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToPricing = () => {
+  router.push('/pitch-deck-creation#pricing')
+}
 
 const isSubmitting = ref(false)
 

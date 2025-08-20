@@ -14,10 +14,10 @@
             class="font-base text-sm sm:text-base font-normal leading-relaxed sm:leading-body tracking-body text-black text-center">
             {{ card.description }}
           </p>
-          <a
-            class="mt-2 bg-primary text-black px-12 rounded-md transition duration-300 text-md font-heading text-center">
+          <button @click="goToPricing"
+            class="mt-2 bg-primary text-black px-12 rounded-md transition duration-300 text-md font-heading text-center hover:bg-primary/90">
             Ok, let's start
-        </a>
+        </button>
         </div>
         <img :src="card.icon" :alt="card.title" class="h-[100px] sm:h-[40%] mb-4 sm:mb-0">
       </div>
@@ -26,6 +26,14 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToPricing = () => {
+  router.push('/pitch-deck-creation#pricing')
+}
+
 const cards = [
   {
     icon: '/images/triple_4.png',

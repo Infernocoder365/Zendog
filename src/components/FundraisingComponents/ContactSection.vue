@@ -23,10 +23,12 @@
         </span>
       </h2>
       <div class="grow basis-0 min-w-0 flex items-center h-full basis-[30%]">
-        <button type="submit" :disabled="isSubmitting"
-          class="bg-[#FF2E93] hover:bg-[#FF2E93]/90 text-white font-header-button text-body leading-header-button tracking-header-button px-4 sm:px-primary-button-padding-x w-full h-full transition-colors duration-200">
+        <router-link
+          :to="{ name: 'home', hash: '#contact' }"
+          class="bg-[#FF2E93] hover:bg-[#FF2E93]/90 text-white font-header-button text-body leading-header-button tracking-header-button px-4 sm:px-primary-button-padding-x w-full h-full transition-colors duration-200 text-center flex items-center justify-center"
+        >
           Schedule call
-        </button>
+        </router-link>
       </div>
     </div>
     </div>

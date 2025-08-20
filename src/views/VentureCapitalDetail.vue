@@ -49,7 +49,7 @@
       </div>
 
       <!-- Navigation buttons -->
-      <div class="mt-8 pt-6 flex justify-between max-w-6xl">
+      <div class="mt-8 pt-6 flex justify-between max-w-6xl mx-auto">
         <router-link v-if="prevArticle" :to="`/venture-capital-101/${prevArticle.id}`" class="flex items-center max-w-[500px] text-2xl">
           <div class="pr-[25px]">
             <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
@@ -116,6 +116,11 @@ const loadArticleData = async () => {
   }
   
   loading.value = false;
+  
+  // Update document title to the article title
+  if (article.value && article.value.title) {
+    document.title = article.value.title;
+  }
   
   // Scroll to top when article changes
   window.scrollTo(0, 0);

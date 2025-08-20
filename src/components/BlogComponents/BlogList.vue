@@ -7,15 +7,24 @@
     </div>
     <div class="flex justify-between mt-10">
       <button @click="prevPage"
-        class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        class="px-4 py-2 text-white rounded-md flex items-center text-left"
         :disabled="currentPage === 1">
-        Previous
+        <div class="pr-[25px]">
+            <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
+              <polyline fill="none" stroke-miterlimit="10" points="7.3,14.7 2.5,8 7.3,1.2" stroke="white"></polyline>
+            </svg>
+          </div>
+          Newer Posts
       </button>
-      <span class="text-white self-center">Page {{ currentPage }} of {{ totalPages }}</span>
       <button @click="nextPage"
-        class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        class="px-4 py-2 text-white rounded-md flex items-center text-right"
         :disabled="currentPage === totalPages">
-        Next
+        Older Posts
+        <div class="pl-[25px]">
+            <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
+              <polyline fill="none" stroke-miterlimit="10" points="1.6,1.2 6.5,7.9 1.6,14.7" stroke="white"></polyline>
+            </svg>
+          </div>
       </button>
     </div>
   </section>
