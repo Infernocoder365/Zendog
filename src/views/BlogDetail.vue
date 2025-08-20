@@ -1,133 +1,74 @@
 <template>
-  <main class="bg-black text-white min-h-screen">
-    <div class="container mx-auto px-4 py-12">
+  <main class="bg-black text-white min-h-screen py-16 px-4">
+    <div class="container mx-auto px-4 py-12 mt-20">
       <div v-if="loading" class="flex justify-center items-center h-64">
         <p class="text-xl">Loading...</p>
       </div>
-      
-      <div v-else-if="post" class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-heading leading-tight mb-2">{{ post.title }}</h1>
-        
-        <div class="text-white text-lg mt-6 mb-4 flex flex-wrap items-center">
-          <span class="mr-4">{{ post.category }}</span>
-          <span v-if="post.author" class="mr-4">By {{ post.author }}</span>
-          <span v-if="post.date" class="">{{ post.date }}</span>
+
+      <div v-else-if="post" class="max-w-xl mx-auto px-4">
+
+        <div class="text-sm mt-6 mb-10 text-center w-full">
+          <span class="mr-2">{{ post.category }}</span>
+          <span v-if="post.date" class="mr-2">{{ post.date }}</span>
+          <span v-if="post.author">By {{ post.author }}</span>
+          <h1 class="text-4xl font-heading leading-tight mb-2 mt-7">{{ post.title }}</h1>
         </div>
-        
-        <div class="prose prose-lg prose-invert max-w-none text-white" v-html="renderedContent"></div>
-        
-        <div class="mt-8 pt-6 border-t border-gray-700">
-          <a 
-            :href="post.originalLink" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="text-white hover:text-gray-300 border-b border-white"
-          >
-            View original article
-          </a>
-        </div>
-        
+
+        <div class=" max-w-none text-white" v-html="renderedContent"></div>
+
         <!-- Author section -->
-        <div class="mt-8 pt-6 border-t border-gray-700">
-          <h3 class="text-xl font-semibold mb-4">About the Author</h3>
-          <div class="flex items-start">
-            <div class="mr-4">
-              <!-- Placeholder for author avatar -->
-              <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center text-xl">
-                {{ post.author ? post.author.charAt(0) : 'A' }}
-              </div>
+        <div class="mt-8 pt-6">
+          <div class="w-full flex items-center justify-center flex-col mx-auto gap-4">
+            <div>
+              <p class="text-sm font-medium">{{ post.author }}</p>
             </div>
             <div>
-              <h4 class="text-lg font-medium">{{ post.author }}</h4>
-              <p class="text-gray-300 mt-1">Content Writer</p>
+              <a class="text-sm font-medium" href="https://zendoglabs.com">https://zendoglabs.com</a>
             </div>
           </div>
         </div>
-        
+
         <!-- Comment form -->
-        <div class="mt-8 pt-6 border-t border-gray-700">
-          <h3 class="text-xl font-semibold mb-4">Leave a Comment</h3>
-          <form @submit.prevent="submitComment" class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium mb-1">Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                v-model="commentForm.name" 
-                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              >
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium mb-1">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                v-model="commentForm.email" 
-                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              >
-            </div>
-            <div>
-              <label for="comment" class="block text-sm font-medium mb-1">Comment</label>
-              <textarea 
-                id="comment" 
-                v-model="commentForm.message" 
-                rows="4" 
-                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              ></textarea>
-            </div>
-            <div>
-              <button 
-                type="submit" 
-                class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                Submit Comment
-              </button>
-            </div>
-          </form>
+        <div class="mt-8 pt-6">
+          <div class="flex justify-between">
+            <h3 class="text-3xl font-heading">Comments (0)</h3>
+            <span class="text-sm text-gray-300">Newest First</span>
+          </div>
+
+          <div
+            class="mt-4 bg-white text-black rounded-md border border-gray-300 min-h-[180px] relative overflow-hidden">
+            <textarea
+              class="absolute inset-0 w-full h-full resize-none bg-transparent text-black p-4 pr-44 pb-16 outline-none"></textarea>
+            <button @click="openCommentForm"
+              class="absolute bottom-2 right-2 z-10 px-6 py-4 bg-primary text-black rounded-md shadow text-sm font-heading">
+              Post Comment...
+            </button>
+          </div>
         </div>
-        
-        <!-- Navigation buttons -->
-        <div class="mt-8 pt-6 border-t border-gray-700 flex justify-between">
-          <router-link 
-            v-if="prevPost" 
-            :to="`/blog/${prevPost.id}`" 
-            class="text-white hover:text-gray-300 flex items-center"
-          >
-            <span class="mr-2">&larr;</span> Previous: {{ prevPost.title.substring(0, 30) }}{{ prevPost.title.length > 30 ? '...' : '' }}
-          </router-link>
-          <div v-else></div>
-          
-          <router-link 
-            v-if="nextPost" 
-            :to="`/blog/${nextPost.id}`" 
-            class="text-white hover:text-gray-300 flex items-center"
-          >
-            Next: {{ nextPost.title.substring(0, 30) }}{{ nextPost.title.length > 30 ? '...' : '' }} <span class="ml-2">&rarr;</span>
-          </router-link>
-          <div v-else></div>
-        </div>
-        
-        <div class="mt-8">
-          <router-link 
-            to="/blog" 
-            class="text-white border-b border-white hover:text-gray-300"
-          >
-            &larr; Back to Blog
-          </router-link>
-        </div>
+
       </div>
-      
-      <div v-else class="text-center py-12">
-        <p class="text-xl mb-4">Post not found</p>
-        <router-link 
-          to="/blog" 
-          class="text-white border-b border-white hover:text-gray-300"
-        >
-          &larr; Back to Blog
+
+
+      <!-- Navigation buttons -->
+      <div class="mt-8 pt-6 flex justify-between max-w-6xl">
+        <router-link v-if="prevPost" :to="`/blog/${prevPost.id}`" class="flex items-center max-w-[500px] text-2xl">
+          <div class="pr-[25px]">
+            <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
+              <polyline fill="none" stroke-miterlimit="10" points="7.3,14.7 2.5,8 7.3,1.2" stroke="white"></polyline>
+            </svg>
+          </div>
+          {{ prevPost.title }}
         </router-link>
+        <div v-else></div>
+
+        <router-link v-if="nextPost" :to="`/blog/${nextPost.id}`" class="flex items-center max-w-[500px] text-2xl text-right">
+          {{ nextPost.title }} <div class="pl-[25px]">
+            <svg class="w-[18px] h-[32px]" viewBox="0 0 9 16">
+              <polyline fill="none" stroke-miterlimit="10" points="1.6,1.2 6.5,7.9 1.6,14.7" stroke="white"></polyline>
+            </svg>
+          </div>
+        </router-link>
+        <div v-else></div>
       </div>
     </div>
   </main>
@@ -156,7 +97,7 @@ const loadPostData = async () => {
   const postId = route.params.id;
   // Ensure string comparison for IDs
   post.value = blogPosts.find(p => String(p.id) === String(postId));
-  
+
   if (post.value) {
     // Load the blog description from markdown file
     const description = await loadBlogDescriptionWithCache(postId);
@@ -165,9 +106,9 @@ const loadPostData = async () => {
       post.value = { ...post.value, description };
     }
   }
-  
+
   loading.value = false;
-  
+
   // Scroll to top when post changes
   window.scrollTo(0, 0);
 };
@@ -214,14 +155,20 @@ const nextPost = computed(() => {
   return blogPosts[currentIndex.value + 1];
 });
 
+// Handle comment form opening
+const openCommentForm = () => {
+  // In a real application, this would open a modal or expand a form
+  alert('Comment form would open here!');
+};
+
 // Handle comment submission
 const submitComment = () => {
   // In a real application, this would send the comment to a backend API
   console.log('Comment submitted:', commentForm.value);
-  
+
   // Show success message
   alert('Thank you for your comment!');
-  
+
   // Reset form
   commentForm.value = {
     name: '',
@@ -230,99 +177,3 @@ const submitComment = () => {
   };
 };
 </script>
-
-<style scoped>
-/* Add any additional styling here */
-.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-  color: white;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-.prose p {
-  margin-bottom: 1.25em;
-}
-
-.prose a {
-  color: #3b82f6;
-  text-decoration: underline;
-}
-
-.prose ul, .prose ol {
-  margin-left: 1.5em;
-  margin-bottom: 1.25em;
-}
-
-.prose blockquote {
-  border-left: 4px solid #4b5563;
-  padding-left: 1em;
-  font-style: italic;
-  margin: 1.5em 0;
-}
-
-.prose code {
-  background-color: #1f2937;
-  padding: 0.2em 0.4em;
-  border-radius: 0.25em;
-  font-size: 0.9em;
-}
-
-.prose pre {
-  background-color: #1f2937;
-  padding: 1em;
-  border-radius: 0.5em;
-  overflow-x: auto;
-  margin: 1.5em 0;
-}
-
-/* Custom markdown elements */
-.p-block {
-  background-color: #1f2937;
-  border-left: 4px solid #3b82f6;
-  padding: 1em;
-  margin-bottom: 1.5em;
-  border-radius: 0.25em;
-}
-
-.counter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #3b82f6;
-  color: white;
-  width: 2em;
-  height: 2em;
-  border-radius: 0.25em;
-  font-weight: bold;
-  margin: 0 0.5em;
-}
-
-.circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #4b5563;
-  color: white;
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  font-weight: bold;
-  margin: 0 0.5em;
-}
-
-.youtube-preview {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  margin: 1.5em 0;
-}
-
-.youtube-preview iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.5em;
-}
-</style>

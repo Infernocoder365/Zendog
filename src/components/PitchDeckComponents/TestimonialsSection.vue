@@ -46,34 +46,9 @@
               <!-- Author -->
               <div class="flex items-center justify-center flex-col">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <!-- <img :src="testimonial.avatar" :alt="testimonial.author"
-                    class="w-full h-full rounded-full object-cover"> -->
-                  <div
-                    class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-[#e5e5e5] to-[rgba(203,203,203,0.15)] transition-opacity duration-1000 ease-out  rounded-full flex items-center justify-center">
-                    <!-- SVG avatar stub -->
-                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="none"
-                      xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-                      <title>Avatar stub icon</title>
-                      <path
-                        d="M12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2Z"
-                        fill="url(#first_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315)"></path>
-                      <path
-                        d="M12 13C9.60453 13 7.42467 13.6937 5.82227 14.6715C5.02143 15.1602 4.33788 15.7363 3.84397 16.3615C3.35805 16.9767 3 17.713 3 18.5C3 19.3449 3.41114 20.0111 4.00266 20.4859C4.56324 20.9359 5.30182 21.2336 6.08716 21.4416C7.66466 21.8593 9.77101 22 12 22C14.229 22 16.3353 21.8593 17.9128 21.4416C18.6982 21.2336 19.4368 20.9359 19.9973 20.4859C20.5889 20.0111 21 19.3449 21 18.5C21 17.713 20.642 16.9767 20.156 16.3615C19.6621 15.7363 18.9786 15.1602 18.1777 14.6715C16.5753 13.6937 14.3955 13 12 13Z"
-                        fill="url(#second_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315)"></path>
-                      <defs>
-                        <linearGradient id="first_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315"
-                          gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#7e7e7e"></stop>
-                          <stop offset="1" stop-color="#989898"></stop>
-                        </linearGradient>
-                        <linearGradient id="second_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315"
-                          gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#7e7e7e"></stop>
-                          <stop offset="1" stop-color="#989898"></stop>
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
+                  <img :src="testimonial.avatar" :alt="testimonial.author"
+                    class="w-full h-full rounded-full object-cover">
+                  
                 </div>
                 <div class="flex flex-col justify-center items-center">
                   <div

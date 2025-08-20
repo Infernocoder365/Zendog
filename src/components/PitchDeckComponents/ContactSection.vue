@@ -14,21 +14,20 @@
         </h2>
       </div>
       <div
-      class="mx-auto max-w-3xl z-[15] relative bg-white rounded-xl p-12 drop-shadow-[5px_5px_5px_rgba(255,46,147,1)] border hover:shadow-lg transition-all duration-300 flex flex-row justify-between items-center gap-x-8 h-40 text-[#FF2E93] mt-40 mb-20"
-    >
-      <h2
-        class="grow basis-0 min-w-0 text-left text-xl sm:text-2xl md:text-3xl font-heading tracking-heading text-black mb-0 font-[800] flex items-center basis-[70%]">
-        <span class="text-sm sm:text-heading-4 text-black font-bold leading-[1.8]">
-          Ready to unlock a <span class="text-[#FF2E93] font-bold">winning pitch deck</span>?
-        </span>
-      </h2>
-      <div class="grow basis-0 min-w-0 flex items-center h-full basis-[30%]">
-        <button type="submit" :disabled="isSubmitting"
-          class="bg-[#FF2E93] hover:bg-[#FF2E93]/90 text-white font-header-button text-body leading-header-button tracking-header-button px-4 sm:px-primary-button-padding-x w-full h-full transition-colors duration-200">
-          Yes, let's start
-        </button>
+        class="mx-auto max-w-3xl z-[15] relative bg-white rounded-xl p-12 drop-shadow-[5px_5px_5px_rgba(255,46,147,1)] border hover:shadow-lg transition-all duration-300 flex flex-row justify-between items-center gap-x-8 h-40 text-[#FF2E93] mt-40 mb-20">
+        <h2
+          class="grow basis-0 min-w-0 text-left text-xl sm:text-2xl md:text-3xl font-heading tracking-heading text-black mb-0 font-[800] flex items-center basis-[70%]">
+          <span class="text-sm sm:text-heading-4 text-black font-bold leading-[1.8]">
+            Ready to unlock a <span class="text-[#FF2E93] font-bold">winning pitch deck</span>?
+          </span>
+        </h2>
+        <div class="grow basis-0 min-w-0 flex items-center h-full basis-[30%]">
+          <button type="submit" :disabled="isSubmitting"
+            class="bg-[#FF2E93] hover:bg-[#FF2E93]/90 text-white font-header-button text-body leading-header-button tracking-header-button px-4 sm:px-primary-button-padding-x w-full h-full transition-colors duration-200">
+            Yes, let's start
+          </button>
+        </div>
       </div>
-    </div>
     </div>
 
     <!-- Clip Path SVG -->

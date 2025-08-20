@@ -22,6 +22,11 @@ const router = createRouter({
       component: () => import('../views/CaseStudies.vue')
     },
     {
+      path: '/case-studies/:id',
+      name: 'case-study-detail',
+      component: () => import('../views/CaseStudyDetail.vue')
+    },
+    {
       path: '/pitch-deck-creation',
       name: 'pitch-deck-creation',
       component: () => import('../views/PitchDeckCreation.vue')
@@ -45,6 +50,11 @@ const router = createRouter({
       path: '/venture-capital-101',
       name: 'venture-capital-101',
       component: () => import('../views/VentureCapital101.vue')
+    },
+    {
+      path: '/venture-capital-101/:id',
+      name: 'venture-capital-detail',
+      component: () => import('../views/VentureCapitalDetail.vue')
     }
   ],
   scrollBehavior(to, from, savedPosition) {
