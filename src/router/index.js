@@ -11,6 +11,8 @@ const Blog = () => import('../views/Blog.vue')
 const BlogDetail = () => import('../views/BlogDetail.vue')
 const VentureCapital101 = () => import('../views/VentureCapital101.vue')
 const VentureCapitalDetail = () => import('../views/VentureCapitalDetail.vue')
+const GrowthVcSlang = () => import('../views/GrowthVcSlang.vue')
+const PrivacyPolicy = () => import('../views/PrivacyPolicy.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -25,6 +27,8 @@ const router = createRouter({
     { path: '/blog/:id', name: 'blog-detail', component: BlogDetail },
     { path: '/venture-capital-101', name: 'venture-capital-101', component: VentureCapital101, meta: { title: 'VC 101 Series 🎓' } },
     { path: '/venture-capital-101/:id', name: 'venture-capital-detail', component: VentureCapitalDetail },
+    { path: '/growth-vc-slang', name: 'growth-vc-slang', component: GrowthVcSlang, meta: { title: 'Growth & VC Slang 🎓' } },
+    { path: '/privacy-policy', name: 'privacy-policy', component: PrivacyPolicy, meta: { title: 'Privacy Policy' } },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

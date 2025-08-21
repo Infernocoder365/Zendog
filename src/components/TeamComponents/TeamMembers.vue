@@ -3,11 +3,11 @@
     <div class="container mx-auto px-4 md:px-8">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Wall of love</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <div v-for="(member, index) in teamMembers" :key="member.name"
+        <div v-for="(member, index) in visibleMembers" :key="member.name"
           class="bg-transparent p-4 sm:p-6 md:p-8 pb-0 rounded-lg shadow-lg text-left">
           <!-- Stars -->
           <div class="flex mb-3 sm:mb-4 md:mb-6">
-            <div v-for="n in member.star" :key="n"
+            <div v-for="n in member.stars" :key="n"
               class="text-yellow-400 text-xl sm:text-2xl w-[14px] h-[14px] sm:w-[16px] sm:h-[16px]">
               <!-- Star SVG -->
               <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,52 +42,43 @@
             <div
               class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-[#e5e5e5] to-[rgba(203,203,203,0.15)] transition-opacity duration-1000 ease-out  rounded-full flex items-center justify-center">
               <!-- SVG avatar stub -->
-              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="none"
-                xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
-                <title>Avatar stub icon</title>
-                <path
-                  d="M12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2Z"
-                  fill="url(#first_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315)"></path>
-                <path
-                  d="M12 13C9.60453 13 7.42467 13.6937 5.82227 14.6715C5.02143 15.1602 4.33788 15.7363 3.84397 16.3615C3.35805 16.9767 3 17.713 3 18.5C3 19.3449 3.41114 20.0111 4.00266 20.4859C4.56324 20.9359 5.30182 21.2336 6.08716 21.4416C7.66466 21.8593 9.77101 22 12 22C14.229 22 16.3353 21.8593 17.9128 21.4416C18.6982 21.2336 19.4368 20.9359 19.9973 20.4859C20.5889 20.0111 21 19.3449 21 18.5C21 17.713 20.642 16.9767 20.156 16.3615C19.6621 15.7363 18.9786 15.1602 18.1777 14.6715C16.5753 13.6937 14.3955 13 12 13Z"
-                  fill="url(#second_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315)"></path>
-                <defs>
-                  <linearGradient id="first_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#7e7e7e"></stop>
-                    <stop offset="1" stop-color="#989898"></stop>
-                  </linearGradient>
-                  <linearGradient id="second_linear_f2f8a5ea-7a87-4523-b80a-49edca03b315"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#7e7e7e"></stop>
-                    <stop offset="1" stop-color="#989898"></stop>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img :src="member.avatar" :alt="member.name" class="w-full h-full rounded-full" />
             </div>
-            <div class="flex flex-col">
-              <div
-                class="font-heading text-xs sm:text-sm leading-heading tracking-heading text-white flex items-center w-full">
-                {{ member.name }}
-                <div v-if="member.isVerify" class="ml-1 sm:ml-2" aria-label="Verified" role="img">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" class="w-3 h-3 sm:w-4 sm:h-4"
-                    aria-hidden="true">
-                    <path fill="#197BFF"
-                      d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z">
-                    </path>
-                    <path fill="#fff" fill-rule="evenodd"
-                      d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
-                      clip-rule="evenodd"></path>
-                  </svg>
+            <div>
+              <div class="flex flex-col">
+                <div
+                  class="font-heading text-xs sm:text-sm leading-heading tracking-heading text-white flex items-center w-full">
+                  {{ member.author }}
+                  <div v-if="member.verified" class="ml-1 sm:ml-2" aria-label="Verified" role="img">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14"
+                      class="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true">
+                      <path fill="#197BFF"
+                        d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z">
+                      </path>
+                      <path fill="#fff" fill-rule="evenodd"
+                        d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="font-body text-xs sm:text-sm leading-body tracking-body text-white flex items-center">
+                  {{ member.position }}
                 </div>
               </div>
-              <div class="font-body text-xs sm:text-sm leading-body tracking-body text-white flex items-center">
-                {{ member.position }}
-              </div>
+              <img v-if="member.companyLogo" :src="member.companyLogo" :alt="member.company"
+                class="h-[20px] sm:h-[25px] md:h-[30px] mt-1">
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Load More Button -->
+      <div v-if="!showAll && teamMembers.length > 6" class="flex justify-center mt-6 mb-10">
+        <button @click="showAll = true"
+          class="px-5 py-2 text-white bg-[#222222] hover:bg-[#222222]/90 transition-colors rounded-md">
+          Load more
+        </button>
+      </div>
       <div class="text-center mb-8 sm:mb-12 md:mb-16">
         <p
           class="font-body font-body leading-body tracking-body text-white max-w-3xl mx-auto text-xs sm:text-sm md:text-base">
@@ -106,60 +97,165 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const expandedQuotes = ref({})
 
 const teamMembers = [
   {
-    star: 5,
-    detail: "Zendog Labs delivered a professional and impactful PowerPoint pitch deck. They were responsive and met all deadlines. Their domain knowledge and experience in fundraising were impressive.",
+    stars: 5,
+    detail: "We're in the pre-seed stage of our startup for a travel social app. Although we have in-house technology to build our product, we don't have a robust go to market plan. I had before a few conversations with Rafael and his advice always inspired us to the next step when there's a showstopper or a bottleneck. That's when I decided to book a Sparring Session with Rafael from Zendog Labs. He has evaluated the position where we're at and set up a list of executable items for us to move on and test the market. Rafael is a great professional and he never sugarcoats our challenges, instead, he always goes beyond to propel us forward to achieve our goals in an actionable way. I would rate 10 stars if I could and highly recommend Zendog Labs.",
     avatar: "images/branda.jpg",
-    name: "Jas",
-    isVerify: true,
-    position: "Founder & CEO"
+    author: "Branda",
+    position: "Co-Founder & CEO",
+    company: "Nowy",
+    companyLogo: "images/Logo-Nowy.png",
+    verified: true
   },
   {
-    star: 5,
-    detail: "We brought Rafael on as fractional CMO for our $10M subscription business, and his meticulous project management was exceptional. Within just 3 months, he grasped our industry, streamlined performance metrics, and led successful PPC campaigns across major platforms. Rafael also crafted strategic plans for SEO, CRO, and automation, launched a new product, and expanded into new markets. We’re so impressed with his work that we’re expanding the scope of our fractional executive agreement. Highly recommended for any growth or marketing role.",
-    avatar: "images/mptwipjol4cptn716qf6.avif",
-    name: "Michael",
-    isVerify: true,
-    position: "Founder & CEO"
-  },
-  {
-    star: 5,
+    stars: 5,
     detail: "Rafael and the Zendog Labs team are amazing and strategic thinkers. They constantly blew us away with their ability to adapt to our deliverables, manage multiple projects, and think on the fly all while helping us build our business. If you have a chance to work with Zendog Labs - do it!",
+    avatar: "images/mptwipjol4cptn716qf6.avif",
+    author: "Steve",
+    position: "CEO & Co-Founder",
+    company: "fundern",
+    companyLogo: "images/Funden----white---200x100.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Zendog Labs helped us with market research, sales strategy, and other go-to-market questions. I truly cannot think of a more valuable partner. Their attention to detail and business acumen are top-notch and anyone looking to understand who their customer is and what/where their company should focus on should absolutely consider Zendog Labs.",
     avatar: "images/Emanuel.png",
-    name: "Steve",
-    isVerify: true,
-    position: "CEO & Co-Founder"
+    author: "Justin",
+    position: "CEO & Co-Founder",
+    company: "Aryo",
+    companyLogo: "images/Aryo---200x100.png",
+    verified: true
   },
   {
-    star: 5,
-    detail: "Great job again by Zendog Labs! I'm now armed with a very professional pitch deck. It's great getting advice from former VCs. Thoroughly recommend!",
-    avatar: "images/1660762379807.jpg",
-    name: "Craig",
-    isVerify: true,
-    position: "Founder & CEO"
-  },
-  {
-    star: 5,
-    detail: "I had the pleasure of working with Zendog Labs for our fundraising efforts. Their ability to understand quickly what we do and our vision and their strong knowledge of the startup and fundraising world gave us the perfect support. Thank you very much, and I recommend Zendog Labs 100%.",
-    avatar: "images/1652667244382.jpg",
-    name: "Vincent",
-    isVerify: true,
-    position: "Co-Founder & Head Partnerships"
-  },
-  {
-    star: 5,
+    stars: 5,
     detail: "I believe that great sales strategy is the result of great sales tactics, and Zendog Labs helped us double down on the right set of sales tactics for our team. Their growth frameworks are incredibly useful and the team at Zendog Labs is highly analytical. I highly recommend working with them.",
+    avatar: "images/1660762379807.jpg",
+    author: "Mark",
+    position: "SVP Commercial",
+    company: "Corza",
+    companyLogo: "images/Corza---200x100.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "This team is unique! – that’s the first thing that came to my mind during our first call. Zendog Labs has a unique way of approaching challenging situations. They helped us organize and put together sales and marketing strategies and suggested targeted improvements to our day-to-day operations. You will get way more than you expect.",
+    avatar: "images/1652667244382.jpg",
+    author: "Nabil",
+    position: "CEO & Founder",
+    company: "Corza",
+    companyLogo: "images/Bird---200x100.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Last year we launched a B2B SaaS product and had initial traction. However, we sought guidance on further accelerating growth and augmenting our team with global talent. We brought in Rafael from Zendog Labs to review the work of our team and external vendors. He built a new growth playbook that included strategic and tactical advice, which he converted into a Trello board with specific next steps for our team. For example, Rafael found that a subset of Google Ad campaigns was remarkably effective and suggested we re-activate it. Most importantly, he helped us notice that our primary challenge wasn’t user acquisition but activation and retention. Rafael also provided ongoing implementation support by introducing a data-tracking framework and ongoing sparring sessions with our leadership team. We highly recommend working with Rafael and the Zendog Labs team - they are A-players and great to work with!",
     avatar: "images/1619996071552.jpg",
-    name: "Mark",
-    isVerify: true,
-    position: "SVP Commercial"
+    author: "Mels",
+    position: "CEO & Founder",
+    company: "Intellivy",
+    companyLogo: "images/Logo---Intellivy.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "We brought Rafael on as fractional CMO for our $10M subscription business, and his meticulous project management was exceptional. Within just 3 months, he grasped our industry, streamlined performance metrics, and led successful PPC campaigns across major platforms. Rafael also crafted strategic plans for SEO, CRO, and automation, launched a new product, and expanded into new markets. We’re so impressed with his work that we’re expanding the scope of our fractional executive agreement. Highly recommended for any growth or marketing role.",
+    avatar: "images/200px-Mike-Maddox.jpg",
+    author: "Michael",
+    position: "Founder & CEO",
+    company: "Intellivy",
+    companyLogo: "images/Logo-Otaku.jpg",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Zendog and Sam were some of the best consultants I've worked with. From the beginning their passion, aptitude for business and entrepreneurship, communication, and then execution were perfect and very impressive. They provided more value than I could've asked for and they went ABOVE AND BEYOND to make our project a priority and something that really got the feedback needed. I would highly recommend for anyone looking to work with serious and capable people!",
+    avatar: "images/josh-184x300.jpg",
+    author: "Josh",
+    position: "CEO & Co-Founder",
+    company: "2050",
+    companyLogo: "images/2050-Farms---200x100.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "I had the pleasure of working with Zendog Labs for our fundraising efforts. Their ability to understand quickly what we do and our vision and their strong knowledge of the startup and fundraising world gave us the perfect support. Thank you very much, and I recommend Zendog Labs 100%.",
+    avatar: "images/Vincent-Moret-carre-300x300.png",
+    author: "Vincet",
+    position: "Co-Founder & Head Partnerships",
+    company: "Logo-Hop-Delivery",
+    companyLogo: "images/Logo-Hop-Delivery.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Thanks to Zendog Labs, we gained our users' trust and expanded our base to 3,000. Rafael's expertise was instrumental in crafting a stellar go-to-market strategy and helping us achieve product-market fit. The team was responsive, held productive meetings, and delivered quality results. I’d work with Zendog Labs anytime again!",
+    avatar: "images/1710407362242.jpg",
+    author: "David",
+    position: "Founder & CEO",
+    company: "Logo-OptiLegal",
+    companyLogo: "images/Logo-OptiLegal.jpg",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Rafael is a professional. Many consultants don't deliver 100%. He does. We look forward to working with him on the next project.",
+    avatar: "images/Screenshot-2022-09-23-151150.png",
+    author: "Frank",
+    position: "COO & Co-Founder",
+    company: "LeadsMarket---200x100",
+    companyLogo: "images/LeadsMarket---200x100.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Zendog Labs delivered a professional and impactful PowerPoint pitch deck. They were responsive and met all deadlines. Their domain knowledge and experience in fundraising were impressive.",
+    avatar: "images/1675957117270.jpg",
+    author: "Jas",
+    position: "Founder & CEO",
+    company: "Logo-Vtuls",
+    companyLogo: "images/Logo-Vtuls.jpg",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Rafael is a fantastic businessman. His knowledge and experience were very valuable in pushing my startup forward! In addition to his professionalism, he was also a great team player.",
+    avatar: "images/1516525735114.jpg",
+    author: "Ran",
+    position: "CEO & Founder",
+    company: "ETF-Insider---200x100",
+    companyLogo: "images/ETF-Insider---200x100.png",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Zendog Labs tripled our ad spend profitably in less than 12 months, leading to record growth. The team was highly responsive and proactive, consistently hitting difficult targets. They’re extremely growth-oriented and always on the lookout for new ways to scale. I’d 100% recommend them to anyone looking to achieve impressive results.",
+    avatar: "images/1699382022146.jpg",
+    author: "Krzysztof",
+    position: "Lead, Media Buyer",
+    company: "Logo-Otaku",
+    companyLogo: "images/Logo-Otaku.jpg",
+    verified: true
+  },
+  {
+    stars: 5,
+    detail: "Great job again by Zendog Labs! I'm now armed with a very professional pitch deck. It's great getting advice from former VCs. Thoroughly recommend!",
+    avatar: "images/663012c24891c09f9d5375b3_image-3-.png",
+    author: "Craig",
+    position: "Founder & CEO",
+    company: "Logo-The-Shade.jpg",
+    companyLogo: "images/Logo-The-Shade.jpg",
+    verified: true
   }
 ]
+
+const showAll = ref(false)
+const visibleMembers = computed(() => showAll.value ? teamMembers : teamMembers.slice(0, 6))
 
 function toggleQuote(index) {
   expandedQuotes.value[index] = !expandedQuotes.value[index]

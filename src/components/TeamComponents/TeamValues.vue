@@ -52,30 +52,41 @@
       leave-active-class="transition-opacity" leave-from-class="opacity-100" leave-to-class="opacity-0" class="z-50">
       <div v-if="modalOpen">
         <!-- Overlay -->
-        <div class="fixed inset-0 bg-black opacity-50" @click="closeModal"></div>
-        <!-- Modal -->
-        <div
-          class="fixed top-0 sm:right-[20%] h-screen w-full sm:w-[480px] bg-white z-50 p-4 pl-8 overflow-y-auto rounded-r-3xl">
-          <div class="relative">
+        <div class="fixed inset-0 bg-black/50" @click="closeModal"></div>
+        <!-- Centered Modal Container -->
+        <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div class="relative bg-white w-full max-w-4xl rounded-2xl shadow-xl overflow-hidden h-screen">
             <button @click="closeModal"
-              class="absolute self-end mb-4 text-gray-600 bg-gray-300 hover:text-gray-400 text-2xl top-0 right-0 rounded-full w-[32px] h-[32px]"
+              class="absolute top-3 right-3 text-gray-600 bg-gray-200 hover:bg-gray-300 hover:text-gray-800 text-2xl rounded-full w-[32px] h-[32px] flex items-center justify-center"
               aria-label="Close">&times;</button>
-            <div v-if="selectedMember" class="flex flex-col text-black pt-4">
-              <h3 class="text-lg font-bold mb-2">{{ selectedMember.name }}</h3>
-              <p class="mb-2 text-sm">{{ selectedMember.position }}</p>
-              <p class="text-sm mb-2">{{ selectedMember.location }}</p>
-              <a v-if="selectedMember.email" :href="`mailto:${selectedMember.email}`"
-                class="text-[#FF2E93] hover:underline mb-2 text-sm">{{ selectedMember.email }}</a>
-              <div class="text-base mt-4 text-sm prose prose-sm max-w-none"
-                v-html="processMarkdown(selectedMember.detail)"></div>
-              <div><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer"
-                  class="text-gray-400 hover:text-white transition-colors">
-                  <span class="sr-only">LinkedIn</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a></div>
+
+            <div v-if="selectedMember" class="grid grid-cols-1 md:grid-cols-2 h-full">
+              <!-- Left 50%: Avatar -->
+              <div class="bg-gray-50 flex items-center justify-center p-0">
+                <img :src="selectedMember.avatar" :alt="selectedMember.name"
+                  class="h-full object-cover" />
+              </div>
+
+              <!-- Right 50%: Modal Body -->
+              <div class="p-6 text-black overflow-y-auto">
+                <h3 class="text-xl font-bold mb-2">{{ selectedMember.name }}</h3>
+                <p class="mb-1 text-sm">{{ selectedMember.position }}</p>
+                <p class="text-sm mb-2">{{ selectedMember.location }}</p>
+                <a v-if="selectedMember.email" :href="`mailto:${selectedMember.email}`"
+                  class="text-[#FF2E93] hover:underline mb-2 text-sm">{{ selectedMember.email }}</a>
+                <div class="text-base mt-4 text-sm prose prose-sm max-w-none"
+                  v-html="processMarkdown(selectedMember.detail)"></div>
+                <div class="mt-4">
+                  <a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank"
+                    rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors inline-flex items-center gap-2">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

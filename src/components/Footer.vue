@@ -20,12 +20,11 @@
         <div class="sm:col-span-1 md:col-span-4 text-center sm:text-left mt-8 sm:mt-0">
           <h3 class="font-heading text-xl sm:text-2xl md:text-heading-4 leading-tight sm:leading-heading tracking-heading text-primary mb-4 sm:mb-5 md:mb-6 text-center">Navigation</h3>
           <ul class="space-y-2 sm:space-y-3 md:space-y-4 text-black text-sm sm:text-base text-center">
-            <li><a href="#" class="transition hover:text-primary">Home</a></li>
-            <li><a href="#" class="transition hover:text-primary">Team</a></li>
-            <li><a href="#" class="transition hover:text-primary">Case Studies</a></li>
-            <li><a href="#" class="transition hover:text-primary">Vlog</a></li>
-            <li><a href="#" class="transition hover:text-primary">Website Credits</a></li>
-            <li><a href="#" class="transition hover:text-primary">Privacy Policy</a></li>
+            <li><router-link to="/" class="transition hover:text-primary">Home</router-link></li>
+            <li><router-link to="/team" class="transition hover:text-primary">Team</router-link></li>
+            <li><router-link to="/case-studies" class="transition hover:text-primary">Case Studies</router-link></li>
+            <li><router-link to="/blog" class="transition hover:text-primary">Vlog</router-link></li>
+            <li><router-link to="/privacy-policy" class="transition hover:text-primary">Privacy Policy</router-link></li>
           </ul>
           <div class="mt-4 sm:mt-5 md:mt-6 text-gray-400 text-xs sm:text-sm">&copy; 2025 Zendog Labs</div>
         </div>

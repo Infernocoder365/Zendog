@@ -44,12 +44,15 @@
                 <li class="relative group">
                   <a href="#" 
                     :class="['text-text-secondary transition-colors font-body text-sm md:text-base leading-body tracking-body', isInsightsActive ? 'underline' : 'hover:underline']">Insights</a>
-                  <div class="absolute right-0 w-48 bg-bg-secondary rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                  <div class="absolute right-0 w-64 bg-bg-secondary rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
                     <router-link to="/blog" :class="['block px-4 py-2 text-text-secondary transition-colors font-body text-sm leading-body tracking-body', route.path === '/blog' ? 'underline' : 'hover:underline']">
                       Blog 🎓
                     </router-link>
                     <router-link to="/venture-capital-101" :class="['block px-4 py-2 text-text-secondary transition-colors font-body text-sm leading-body tracking-body', route.path === '/venture-capital-101' ? 'underline' : 'hover:underline']">
                       VC 101 Series 🎓
+                    </router-link>
+                    <router-link to="/growth-vc-slang" :class="['block px-4 py-2 text-text-secondary transition-colors font-body text-sm leading-body tracking-body', route.path === '/growth-vc-slang' ? 'underline' : 'hover:underline']">
+                      Growth & VC Slang 🎓
                     </router-link>
                   </div>
                 </li>
@@ -131,6 +134,11 @@
                   VC 101 Series
                 </router-link>
               </li>
+              <li>
+                <router-link to="/growth-vc-slang" :class="['text-text-secondary transition-colors font-body text-sm leading-body tracking-body block py-2', route.path === '/growth-vc-slang' ? 'underline' : '']">
+                  Growth & VC Slang
+                </router-link>
+              </li>
             </ul>
           </li>
           
@@ -169,7 +177,7 @@ const isGrandSlamsActive = computed(() => {
 })
 
 const isInsightsActive = computed(() => {
-  return route.path.includes('/blog') || route.path.includes('/venture-capital-101')
+  return route.path.includes('/blog') || route.path.includes('/venture-capital-101') || route.path.includes('/growth-vc-slang')
 })
 
 const handleScroll = () => {
