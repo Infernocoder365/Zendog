@@ -93,21 +93,27 @@ const form = ref({
 const submitForm = async () => {
   isSubmitting.value = true
 
-  // Simulate form submission
-  await new Promise(resolve => setTimeout(resolve, 2000))
+  // Create mailto link with form data
+  const subject = encodeURIComponent(`Contact Form: ${form.value.company}`)
+  const body = encodeURIComponent(
+    `Message:\n${form.value.message}`
+  )
+  
+  const mailtoLink = `mailto:${form.value.email}?subject=${subject}&body=${body}`
+  
+  // Open mailto link
+  window.location.href = mailtoLink
 
-  // Reset form
-  form.value = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    company: '',
-    message: ''
-  }
-
-  isSubmitting.value = false
-
-  // Show success message (you can implement this as needed)
-  alert('Thank you for your message! We\'ll get back to you soon.')
+  // Reset form after a short delay
+  setTimeout(() => {
+    form.value = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      company: '',
+      message: ''
+    }
+    isSubmitting.value = false
+  }, 1000)
 }
 </script>
